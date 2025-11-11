@@ -68,7 +68,7 @@ export default function AdminDashboard() {
     fetchDashboard();
   }, []);
 
-  if (err) return <div className="text-red-600 p-4">{err}</div>;
+  if (err) return <div className="text-red-600 p-4">Please login to view the dashboard</div>;
   if (!data) return <div className="text-gray-600 p-4">Loading...</div>;
 
   return (
