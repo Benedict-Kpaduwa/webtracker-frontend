@@ -1,4 +1,4 @@
-const API_BASE = 'https://webtracker-backend.vercel.app';
+const API_BASE = import.meta.env.VITE_BASE_URL;
 
 export function apiUrl(path) {
   return API_BASE.replace(/\/$/, '') + path;

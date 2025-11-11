@@ -11,10 +11,11 @@ import {
   BarChart,
   Bar,
 } from "recharts";
+import VisitorAccordion from "../components/Accordian";
 
-const API_BASE = "https://webtracker-backend.vercel.app";
+const API_BASE = import.meta.env.VITE_BASE_URL;
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: API_BASE,
   headers: {
     "Content-Type": "application/json",
@@ -68,7 +69,10 @@ export default function AdminDashboard() {
     fetchDashboard();
   }, []);
 
-  if (err) return <div className="text-red-600 p-4">Please login to view the dashboard</div>;
+  if (err)
+    return (
+      <div className="text-red-600 p-4">Please login to view the dashboard</div>
+    );
   if (!data) return <div className="text-gray-600 p-4">Loading...</div>;
 
   return (
@@ -156,7 +160,6 @@ export default function AdminDashboard() {
             <span className="font-mono">{data.uniqueVisitors}</span>
           </div>
         </div>
-
         <h5 className="mt-5 font-semibold text-md text-gray-700">
           Recent Visitors
         </h5>
@@ -178,6 +181,7 @@ export default function AdminDashboard() {
             </li>
           ))}
         </ul>
+        <VisitorAccordion />
       </div>
     </div>
   );

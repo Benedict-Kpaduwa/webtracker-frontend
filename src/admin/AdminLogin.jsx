@@ -8,7 +8,7 @@ export default function AdminLogin() {
   const [err, setErr] = useState(null);
   const navigate = useNavigate();
 
-  const API_BASE = "https://webtracker-backend.vercel.app";
+  const API_BASE = import.meta.env.VITE_BASE_URL;
 
   async function submit(e) {
     e.preventDefault();
@@ -48,6 +48,7 @@ export default function AdminLogin() {
           <input
             type="password"
             value={password}
+            placeholder="password is password"
             onChange={(e) => setPassword(e.target.value)}
             className="mt-1 block w-full border px-3 py-2 rounded"
           />

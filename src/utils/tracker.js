@@ -27,7 +27,7 @@ export async function trackEvent({ page = '/', type = 'pageview', payload = null
       userAgent: navigator.userAgent
     };
 
-    fetch(`${'https://webtracker-backend.vercel.app'}/track`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
